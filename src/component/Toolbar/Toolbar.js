@@ -8,7 +8,7 @@ export class Toolbar extends Component {
     return (
       <header className='toolbar'>
         <nav className='toolbar-navigation'>
-          <div>
+          <div className='toolbar-toggle-button'>
             <DrawerToggleButton click={this.props.drawerClickHandler}/>
           </div>
           <div className='toolbar-logo'><a href="/">THE LOGO</a></div>
