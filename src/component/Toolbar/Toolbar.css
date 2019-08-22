@@ -1,0 +1,53 @@
+/* header */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #521751;
+  height: 56px;
+}
+/* nav */
+.toolbar-navigation {
+  display: flex;
+  height: 100%;
+  align-items: center ;
+  padding: 0 1rem;
+}
+
+.toolbar-logo {
+  margin-left: 1rem;
+}
+
+.toolbar-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar-navigation-item ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  
+}
+
+.toolbar-navigation-item ul li {
+  padding: 0 0.5rem;
+}
+
+.toolbar-navigation-item a {
+  color: white;
+  text-decoration: none;
+  
+}
+
+.toolbar-navigation-item a:hover,
+.toolbar-navigation-item a:active {
+  color: #fa923f;
+}

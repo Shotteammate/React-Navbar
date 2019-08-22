@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component}  from 'react';
+import Toolbar from './component/Toolbar/Toolbar';
+import SideDrawer from './component/SideDrawer/SideDrawer';
+import BackDrop from './component/BackDrop/BackDrop';
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  state = {
+    sideDrawerOpen: false
+  };
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({sideDrawerOpen: false});
+  };
+
+  render() {
+    let sideDrawer;
+    let backdrop;
+
+    if(this.state.sideDrawerOpen){
+      sideDrawer = <SideDrawer/>;
+      backdrop = <BackDrop backdropClickHandler={this.backdropClickHandler} />;
+    }
+
+    return (
+      <div style={{height:'100%'}}>
+        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+        {sideDrawer}
+        {backdrop}
+        <main style={{marginTop:'64px'}}>
+          <p>this is the page content</p>
+          <p>Duo Reges: constructio interrete. Tu autem negas fortem esse quemquam posse, qui dolorem malum putet. Hic nihil fuit, quod quaereremus. Quid ait Aristoteles reliquique Platonis alumni? Illa argumenta propria videamus, cur omnia sint paria peccata. Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Iam illud quale tandem est, bona praeterita non effluere sapienti, mala meminisse non oportere?</p>
+        </main>
+        
+      </div>
+    );
+  }
 }
 
 export default App;
